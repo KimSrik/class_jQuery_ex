@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <input type="text" id="input01" class="txt-box">
+    <div>
+        <input type="text" id="input02" class="txt-box">
+    </div>
+    <script>
+        $(function(){
+            console.log($('#input01').is(':visible'));
+            if($('#input01').is(':visible')){
+                $('#input01').css({
+                    width : '100px',
+                    height : '100px'
+                })
+
+            }
+            if($('#input01').parent().is('body')){
+                $("#input01").css({
+                    color : 'red'
+                })
+            }
+
+            console.log($('#input01').parent().is('body'));
+
+            // jQuery에서 가져온 것을 get메소드를 사용하면 javascript에서 사용할 수 있게끔 한다.
+            let inBox = $('input').get(1);
+            // inBox.css({
+            //     color: 'green',
+            // })
+            inBox.style.color = 'green';
+
+
+        })
+    </script>
+</body>
+</html>
