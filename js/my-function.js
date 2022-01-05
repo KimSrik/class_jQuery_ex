@@ -4,45 +4,28 @@ function fnFlexItemWidth(){
     let setWidth = (conWidth - 12) / 2;
     setBox.css({width:setWidth,});
 }
-
-function loadEvent1(){
-    let sec1_1 = $('.sec01 .box01');
-    let sec1_2 = $('.sec01 .box02');
-
-    sec1_1.css({
-        transform:'translateX(0)',
-        opacity: '1'
-    })
-    sec1_2.css({
+function moveBox(item){
+    $(item).css({
         transform:'translateX(0)',
         opacity: '1'
     })
 }
-
-function loadEvent2(){
-    let sec1_3 = $('.sec01 .box03');
-    let sec1_4 = $('.sec01 .box04');
-
-    sec1_3.css({
-        transform:'translateX(0)',
-        opacity: '1'
-    })
-    sec1_4.css({
-        transform:'translateX(0)',
-        opacity: '1'
-    })
+// 각각 박스를 나오게 하는 함수
+function loadEvent(leftBox, rightBox){
+    moveBox(leftBox);
+    moveBox(rightBox);
 }
 
-function loadEvent3(){
-    let sec1_5 = $('.sec01 .box05');
-    let sec1_6 = $('.sec01 .box06');
-
-    sec1_5.css({
-        transform:'translateX(0)',
-        opacity: '1'
-    })
-    sec1_6.css({
-        transform:'translateX(0)',
-        opacity: '1'
-    })
+        
+// 기존 section01 부분
+function loadEventS(item1, item2, item3, item4, item5, item6, deTime){
+    setTimeout(function(){
+        loadEvent(item1, item2);
+    },deTime);
+    setTimeout(function(){
+        loadEvent(item3, item4);
+    },deTime+500);
+    setTimeout(function(){
+        loadEvent(item5, item6);
+    },deTime+1000);
 }

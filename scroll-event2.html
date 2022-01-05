@@ -43,7 +43,7 @@
             overflow: hidden;
         }
         .flex-box>div{
-            /* width: 582px; */
+            width: 582px;
             height: 200px;
             margin-bottom: 12px;
             background-color: rgba(0,0,0,0.1);
@@ -53,7 +53,8 @@
             font-size: 50px;
             text-align: center;
             line-height: 200px;
-            transition: 0.3s;
+            
+            transition: 0.5s;
         }
         .flex-box>.box05, .flex-box>.box06{
             margin-bottom: 0;
@@ -64,68 +65,15 @@
         .flex-box>div:nth-child(2n){
             transform: translateX(100%);
         }
+        .flex-box>div.active{
+            transform: translateX(0);
+            opacity: 1;
+        }
 
     </style>
-    <script src="./js/jquery-3.6.0.js"></script>
-    <script src="./js/my-function.js"></script>
-    <script>
-        $(function(){
-            let sec01Box = $('.sec01 div[class*="box0"]');
-            let sec02Box = $('.sec02 div[class*="box0"]');
-            let sec03Box = $('.sec03 div[class*="box0"]');
-            let sec04Box = $('.sec04 div[class*="box0"]');
-            let sec05Box = $('.sec05 div[class*="box0"]');
-            
-            // 크기가 변해도 스타일 잡는 함수 호출
-            fnFlexItemWidth();
-            
-            
-            // 각 높이 구하는 부분
-            
-            let winHeight = $(window).height();
-            let sec01OffsetTop = $('.sec01').offset().top;
-            let sec02OffsetTop = $('.sec02').offset().top;
-            let sec03OffsetTop = $('.sec03').offset().top;
-            let sec04OffsetTop = $('.sec04').offset().top;
-            let sec05OffsetTop = $('.sec05').offset().top;
-
-            console.log(winHeight);
-            console.log(sec01OffsetTop);
-            console.log(sec02OffsetTop);
-            console.log(sec03OffsetTop);
-            console.log(sec04OffsetTop);
-            console.log(sec05OffsetTop);
-
-            
-
-            
-            loadEventS(sec01Box[0], sec01Box[1], sec01Box[2], sec01Box[3], sec01Box[4], sec01Box[5], 1000);
-            
-            
-
-
-            
-
-
-            let windowScrollTop;
-            // 윈도우를 스크롤 했을 경우
-            $(window).scroll(function(){
-                windowScrollTop = $(window).scrollTop();
-                if(windowScrollTop > sec02OffsetTop - winHeight * 0.6){
-                    loadEventS(sec02Box[0], sec02Box[1], sec02Box[2], sec02Box[3], sec02Box[4], sec02Box[5], 0);
-                } 
-                if(windowScrollTop > sec03OffsetTop - winHeight * 0.6){
-                    loadEventS(sec03Box[0], sec03Box[1], sec03Box[2], sec03Box[3], sec03Box[4], sec03Box[5], 0);
-                }
-                if(windowScrollTop > sec04OffsetTop - winHeight * 0.6){
-                    loadEventS(sec04Box[0], sec04Box[1], sec04Box[2], sec04Box[3], sec04Box[4], sec04Box[5], 0);
-                }
-                if(windowScrollTop > sec05OffsetTop - winHeight * 0.6){
-                    loadEventS(sec05Box[0], sec05Box[1], sec05Box[2], sec05Box[3], sec05Box[4], sec05Box[5], 0);
-                }                                                             
-            })            
-        })
-    </script>
+    <!-- <script src="./js/jquery-3.6.0.js"></script> -->
+    <!-- <script src="./js/my-function.js"></script> -->
+    
 </head>
 <body>
     <section class="wrap">
@@ -200,5 +148,44 @@
             </div>
         </footer>
     </section>
+    <script>
+        
+        // $(function(){
+            // let box = $('div[class*="box0"]');
+            
+            let flexBox = document.getElementsByClassName('flex-box');
+            let box = new Array();
+            let boxIdx = 0;
+
+
+            for(let idx=0; idx<flexBox.length; idx++){
+                box[boxIdx++] = flexBox[idx].children;
+            }
+            console.log(box[4][5]);
+            
+
+            let loadEvent = setInterval(function(){
+                let loadEvent2 = setInterval(function(){
+                    box[idx++].addClass('active');
+                    if(idx>box.length){
+                        clearInterval(loadEvent);
+                    }
+                }, 300)
+            }, 1800);
+
+            // function loadEvent(leftBox, rightBox){
+            //     moveBox(leftBox);
+            //     moveBox(rightBox);
+            // }
+
+            // function moveBox(item){
+            //     item.querySelector.css({
+            //         transform:'translateX(0)',
+            //         opacity: '1'
+            //     })
+            // }
+        // })
+        
+    </script>
 </body>
 </html>
