@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 이벤트 개체</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 500px;
+            height: 300px;
+            border: 10px solid black;
+
+            text-align: center;
+
+            margin: 20px auto;
+            line-height: 300px;
+
+            font-size: 48px;
+        }
+    </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('.wrap').on({
+                'click': function(event){
+                    // 마우스 이벤트 객체 - 마우스 위치(.clientX, .clientY)
+                    // wrap(이벤트)범위를 벗어나면 이벤트는 발생하지 않는다.
+
+                    // client 좌표값은 현재 스크롤 기준이다.(스크롤이 움직이면 바뀜)
+                    console.log('현재 마우스의 X축 좌표는 : ' + event.clientX);
+                    console.log('현재 마우스의 Y축 좌표는 : ' + event.clientY);
+                    // page 좌표값은 문서 기준 좌표이다(스크롤이 움직여도 안 바뀜)
+                    console.log('현재 마우스의 X축 좌표는 : ' + event.pageX);
+                    console.log('현재 마우스의 Y축 좌표는 : ' + event.pageY);
+                    // screen의 좌표는 화면(모니터) 기준 좌표이다.(창 자체를 움직이면 값이 바뀜)
+                    console.log('현재 마우스의 X축 좌표는 : ' + event.screenX);
+                    console.log('현재 마우스의 Y축 좌표는 : ' + event.screenY);
+                    // screen의 좌표는 대상 기준 좌표이다.(창 스크롤이 바뀌어도 안 바뀜)
+                    console.log('현재 마우스의 X축 좌표는 : ' + event.offsetX);
+                    console.log('현재 마우스의 Y축 좌표는 : ' + event.offsetY);
+                } 
+            })
+            $('body').on({
+                'mousewheel':function(event){
+                    console.log('마우스의 방향 : ' + event.clientY);
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="wrap wrap01">박스1</div>
+    <div class="wrap wrap02">박스2</div>
+    <div class="wrap wrap03">박스3</div>
+    <div class="wrap wrap04">박스4</div>
+    <div class="wrap wrap05">박스5</div>
+</body>
+</html>

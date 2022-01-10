@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콜백 함수(callBack function)</title>
+    <style>
+        .text{
+            width: 500px;
+            height: 300px;
+            border: 1px solid black;
+            background-color: red;
+        }
+    </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('.text').on({
+                'click':function(){
+                    // callback 함수가 들어가지 않은 함수도 있다.
+                    $(this).slideUp(tmp);      
+                          
+            }})
+            function tmp(){
+                $('.text').slideDown();
+            }
+        })
+    </script>
+</head>
+<body>
+    <div class="text"></div>
+</body>
+</html>
