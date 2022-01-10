@@ -8,14 +8,14 @@
     <script src="./js/jquery-3.6.0.js"></script>
     <script>
         $(function(){
-            function tmp(self, callback){
-                self.text('안녕하세요');
+            function tmp1(msg, callback){
+                console.log(msg);
                 callback();
             }
-            tmp($('body'), function(){
-                alert('안녕하세요');
-            })
-            
+            function tmp2(){
+                console.log('안녕하세요2');
+            }
+            tmp1('안녕하세요', tmp2);
         })
     </script>
 </head>

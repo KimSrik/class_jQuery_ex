@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: red;
+        }
+        .modal{
+            width: 600px;
+            height: 400px;
+            margin: 100px auto;
+            border: 1px solid black;
+            padding: 20px;
+            border-radius: 20px;
+            background-color: white;
+            position: relative;
+        }
+        .btn-close{
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 40px;
+            height: 20px;
+        }
+        .btn-close::before, .btn-close::after{
+            content:'';
+            display:block;
+            height: 4px;
+            background-color: black;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            transform: rotate(45deg);
+        }
+        .btn-close::after{
+            transform: rotate(-45deg);
+        }
+    </style>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    
+</head>
+<body>
+    <div class="wrap">
+        <div class="modal">
+            <h2>모달창</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ea sunt dolor exercitationem placeat doloribus nisi est cupiditate libero odio impedit rem illum nemo, repellendus nesciunt quos tenetur quaerat quisquam!
+                    Reprehenderit totam maxime debitis quibusdam error odio sunt temporibus soluta possimus quia, ea libero qui expedita eaque laboriosam minus nostrum modi. Alias voluptatibus quod, culpa explicabo ad laudantium exercitationem esse.
+                    Est tempore fuga sapiente dolore rem aliquid officiis optio labore nemo aliquam ab accusantium voluptatum quas, in quae consequuntur accusamus dignissimos eos recusandae eligendi odio veniam doloribus animi. Iure, ducimus!
+                    Nobis molestias, similique, at ex voluptate repellat id perspiciatis exercitationem, amet distinctio totam reiciendis! Repellendus, incidunt. Voluptas, alias ratione! Quod amet deleniti quisquam dolor! Maxime facere a consectetur ab nobis.
+                    Sit, possimus eveniet? Officia dolorem dicta ad accusamus! Saepe deleniti dolorum ipsa inventore modi facere sapiente. Aperiam quibusdam, numquam, quas iusto unde explicabo odit quis impedit in voluptatum voluptate sit!
+                </p>
+            <div class="btn-close">
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        // $(function(){
+        //     $('.btn-close').on({
+        //         'click':function(){
+        //             $('.modal').hide(300);
+        //         }
+        //     })
+        // })
+
+
+
+            let modalWindow = document.querySelector('.modal');
+            let btnCloseWindow = document.querySelector('.btn-close');
+            console.log(modalWindow);
+            console.log(btnCloseWindow);
+            btnCloseWindow.addEventListener('click',function(){
+                modalWindow.style.display = 'none';
+            })
+        
+    </script>
+</body>
+</html>
