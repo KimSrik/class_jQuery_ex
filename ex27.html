@@ -71,25 +71,32 @@
                 },300)
             })
 
-            let moveVal = 0;
+            let moveVal = 10;
 
             $('#btn09').click(function(){
-                moveVal+=50;
+                moveVal=50;
                 move($('.move-box3'), moveVal);
             })
             $('#btn10').click(function(){
-                moveVal-=50;
+                moveVal= -50;
                 move($('.move-box3'), moveVal);
             })
 
             function move(target, moveVal){
+                let nowMarLeft = target.css('margin-left');
+                let newMarLeft = Number(nowMarLeft.slice(0,nowMarLeft.length-2));
+                console.log('현재 마진 : ' + nowMarLeft);
+                console.log('바뀐 마진 : ' + typeof newMarLeft);
+
+
+
                 target.animate({
-                    marginLeft:moveVal,
+                    marginLeft: newMarLeft + moveVal,
                 },300);
 
             }
 
-
+            move($('.move-box3'));
 
         })
     </script>
